@@ -3,14 +3,15 @@
 
 # Installation
 ```
-npm install git+https://github.com/satoooon8888/AtCoderProblemsVirtualContest-cli
+npm install -g git+https://github.com/satoooon8888/AtCoderProblemsVirtualContest-cli
 ```
 
 # Usage
-accpとして各種コマンドが使えます。  
+accをaccpとして置き換えてください。accの各種コマンドが使えます。  
 contest_idはAtCoderProblems-VirtualContestのURLの  
 `https://kenkoooo.com/atcoder/#/contest/show/{id}`  
 の部分で置き換えてください。  
+通常のAtCoderのコンテストは利用できません。そのときは従来のaccを使ってください。
 
 ```
 accp -h
@@ -19,7 +20,7 @@ accp s
 ```
 
 # Changes
-src/atcoder.tsをこのリポジトリのatcoder.tsに書き換えました。  
+src/atcoder.tsをこのリポジトリのatcoder.tsに書き換えてビルドしました。ビルドしたものをcli.jsとして公開しています。  
 
 # Thanks
-atcoder-cliおよびonline-judge-toolsの開発者、貢献者様に深く感謝申し上げます。
+atcoder-cliおよびonline-judge-toolsの開発者、貢献者様に深く感謝申し上げます。  
