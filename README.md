@@ -1,9 +1,9 @@
 # Overview
-<a href="https://github.com/Tatamo/atcoder-cli">atcoder-cli</a>をAtCoderProblems-VirtualContest用に改変したクローンです。
+<a href="https://github.com/Tatamo/atcoder-cli">atcoder-cli</a>をAtCoderProblems VirtualContest用に改変したクローンです。
 
 # Installation
 ```
-npm install git+https://github.com/satoooon8888/AtCoderProblemsContest-cli.git
+npm install git+https://github.com/satoooon8888/AtCoderProblemsVirtualContest-cli
 ```
 
 # Usage

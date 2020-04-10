@@ -1,5 +1,5 @@
 {
-  "name": "AtCoderProblemsContest-cli",
+  "name": "AtCoderProblemsVirtualContest-cli",
   "version": "1.0.0",
   "description": "AtCoder Problems Virtual Contest command line tools. Original: https://github.com/Tatamo/atcoder-cli",
   "keywords": [
@@ -11,7 +11,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/satoooon8888/AtCoderProblemsContest-cli.git"
+    "url": "https://github.com/satoooon8888/AtCoderProblemsVirtualContest-cli.git"
   },
   "bin": {
     "accp": "cli.js"
