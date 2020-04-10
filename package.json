@@ -1,0 +1,32 @@
+{
+  "name": "AtCoderProblemsContest-cli",
+  "version": "1.0.0",
+  "description": "AtCoder Problems Virtual Contest command line tools. Original: https://github.com/Tatamo/atcoder-cli",
+  "keywords": [
+    "atcoder",
+    "competitive-programming",
+    "cli"
+  ],
+  "author": "Satoooon",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satoooon8888/AtCoderProblemsContest-cli.git"
+  },
+  "bin": {
+    "accp": "cli.js"
+  },
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "axios": "^0.19.0",
+    "commander": "^3.0.1",
+    "conf": "^5.0.0",
+    "fs-extra": "^8.1.0",
+    "inquirer": "^7.0.0",
+    "jsdom": "^15.1.1",
+    "mkdirp": "^0.5.1",
+    "query-string": "^6.8.3",
+    "typesafe-di": "^0.1.0",
+    "update-notifier": "^4.1.0"
+  }
+}
