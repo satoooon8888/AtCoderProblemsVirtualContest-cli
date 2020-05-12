@@ -1,6 +1,7 @@
 import {SessionInterface} from "./session";
 import querystring from "query-string";
 import {Contest, Task} from "./project";
+import {start} from "repl";
 
 const ATCODER_BASE_URL = "https://atcoder.jp/";
 const ATCODER_PROBLEM_CONTEST_URL = "https://kenkoooo.com/atcoder/internal-api/contest/get"
@@ -180,20 +181,23 @@ class BaseAtCoder {
 
 export class AtCoder extends BaseAtCoder {
     private merged_problems_cache: object | null;
+
     constructor(session: SessionInterface) {
-        super(session)
-        this.merged_problems_cache = null
+        super(session);
+        this.merged_problems_cache = null;
     }
 
     static getProblemContestURL(contest: string) {
-        return `${ATCODER_PROBLEM_CONTEST_URL}/${contest}`
+        return `${ATCODER_PROBLEM_CONTEST_URL}/${contest}`;
     }
 
     async getMergedProblem() {
         if (this.merged_problems_cache) {
             return this.merged_problems_cache;
         } else {
-            const response = await this.session.get(ATCODER_PROBLEMS_MERGED_PROBLEM_URL, {headers: {'Accept-Encoding': 'gzip'}});
+            const response = await this.session.get(
+                ATCODER_PROBLEMS_MERGED_PROBLEM_URL, {headers: {'Accept-Encoding': 'gzip'}}
+            );
             this.merged_problems_cache = response.data as any;
             return (response.data as any);
         }
@@ -225,16 +229,23 @@ export class AtCoder extends BaseAtCoder {
     async tasks(contest_id: string): Promise<Array<Task>> {
         // コンテストが見つからない場合エラーとなるがハンドルせず外に投げる
         const response = await this.session.get(AtCoder.getProblemContestURL(contest_id), {headers: {'Accept-Encoding': 'gzip'}});
+        const startUNIXTime = (response.data as any).start_epoch_second;
+        const startDate = new Date(0);
+        startDate.setUTCSeconds(startUNIXTime);
+        if (new Date().getTime() < startDate.getTime()){
+            console.log('The contest has not started yet.');
+            throw new Error('The contest has not started yet.');
+        }
         const tasks: Array<Task> = [];
         for (const problem of (response.data as any).problems) {
-            const task = await this.getTaskFromTaskId(problem.id)
+            const task = await this.getTaskFromTaskId(problem.id);
             const id = task.id;
             const label = (problem.order + 1).toString();
             const title = task.title;
             const url = task.url;
             tasks.push({id, label, title, url});
         }
-        tasks.sort((a, b) => Number(a.label) - Number(b.label))
+        tasks.sort((a, b) => Number(a.label) - Number(b.label));
         return tasks;
     }
 }
